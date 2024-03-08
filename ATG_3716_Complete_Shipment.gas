@@ -1,0 +1,558 @@
+Program.Sub.ScreenSU.Start
+gui.fCompShip..create
+gui.fCompShip..caption("Complete Shipments")
+gui.fCompShip..size(8175,9870)
+gui.fCompShip..position(0,390)
+gui.fCompShip..event(unload,fcompship_unload)
+gui.fCompShip..alwaysontop(False)
+gui.fCompShip..fontname("Arial")
+gui.fCompShip..fontsize(8)
+gui.fCompShip..forecolor(0)
+gui.fCompShip..fontstyle(,,,,)
+gui.fCompShip..BackColor(-2147483633)
+gui.fCompShip..controlbox(True)
+gui.fCompShip..maxbutton(False)
+gui.fCompShip..minbutton(True)
+gui.fCompShip..mousepointer(0)
+gui.fCompShip..moveable(True)
+gui.fCompShip..sizeable(False)
+gui.fCompShip..ShowInTaskBar(True)
+gui.fCompShip..titlebar(True)
+gui.fCompShip.lbl1.create(label,"Customer",True,675,255,1,200,1430,True,0,Arial,8,-2147483633,0)
+gui.fCompShip.lbl2.create(label,"Shipper Number",True,1155,255,1,200,2045,True,0,Arial,8,-2147483633,0)
+gui.fCompShip.lbl3.create(label,"Part Number",True,900,255,1,200,2660,True,0,Arial,8,-2147483633,0)
+gui.fCompShip.lbl4.create(label,"Purchase Order Number",True,1800,255,1,200,3230,True,0,Arial,8,-2147483633,0)
+gui.fCompShip.lbl5.create(label,"Line Item Number",True,1290,255,1,200,3815,True,0,Arial,8,-2147483633,0)
+gui.fCompShip.lbl6.create(label,"Shipped Qty",True,1035,255,1,200,4415,True,0,Arial,8,-2147483633,0)
+gui.fCompShip.lbl7.create(label,"Bill Number",True,1935,255,1,200,5000,True,0,Arial,8,-2147483633,0)
+gui.fCompShip.lbl8.create(label,"Shipped Via",True,960,255,1,200,5585,True,0,Arial,8,-2147483633,0)
+gui.fCompShip.lbl9.create(label,"Select Shipment To Close",True,1935,255,1,230,800,True,0,Arial,8,-2147483633,0)
+gui.fCompShip.lbl10.create(label,"Comments",True,945,255,1,200,6815,True,0,Arial,8,-2147483633,0)
+gui.fCompShip.lbl12.create(label,"Select Physical Shipped Date",True,2175,255,1,200,6215,True,0,Arial,8,-2147483633,0)
+gui.fCompShip.txtCust.create(textbox,"",True,3675,300,0,200,1625,False,0,Arial,8,13619151,1)
+gui.fCompShip.txtShip.create(textbox,"",True,3675,300,0,200,2255,False,0,Arial,8,13619151,1)
+gui.fCompShip.txtPart.create(textbox,"",True,3675,300,0,200,2855,False,0,Arial,8,13619151,1)
+gui.fCompShip.txtPO.create(textbox,"",True,3675,300,0,200,3425,False,0,Arial,8,13619151,1)
+gui.fCompShip.txtLine.create(textbox,"",True,3675,300,0,200,4010,False,0,Arial,8,13619151,1)
+gui.fCompShip.txtQty.create(textbox,"",True,3675,300,0,200,4610,False,0,Arial,8,13619151,1)
+gui.fCompShip.txtBill.create(textbox,"",True,3675,300,0,200,5195,True,0,Arial,8,16777215,1)
+gui.fCompShip.txtBill.maxLength(19)
+gui.fCompShip.cmdClose.create(button)
+gui.fCompShip.cmdClose.caption("Close Shipments")
+gui.fCompShip.cmdClose.visible(True)
+gui.fCompShip.cmdClose.size(2070,375)
+gui.fCompShip.cmdClose.zorder(0)
+gui.fCompShip.cmdClose.position(200,200)
+gui.fCompShip.cmdClose.enabled(True)
+gui.fCompShip.cmdClose.fontname("Arial")
+gui.fCompShip.cmdClose.fontsize(8)
+gui.fCompShip.cmdClose.event(click,cmdclose_click)
+gui.fCompShip.cmdEdit.create(button)
+gui.fCompShip.cmdEdit.caption("Edit Closed Shipments")
+gui.fCompShip.cmdEdit.visible(True)
+gui.fCompShip.cmdEdit.size(2070,375)
+gui.fCompShip.cmdEdit.zorder(0)
+gui.fCompShip.cmdEdit.position(2450,200)
+gui.fCompShip.cmdEdit.enabled(True)
+gui.fCompShip.cmdEdit.fontname("Arial")
+gui.fCompShip.cmdEdit.fontsize(8)
+gui.fCompShip.cmdEdit.event(click,cmdclose_click)
+gui.fCompShip.cmdSave.create(button)
+gui.fCompShip.cmdSave.caption("Save")
+gui.fCompShip.cmdSave.visible(True)
+gui.fCompShip.cmdSave.size(855,375)
+gui.fCompShip.cmdSave.zorder(0)
+gui.fCompShip.cmdSave.position(200,8700)
+gui.fCompShip.cmdSave.enabled(True)
+gui.fCompShip.cmdSave.fontname("Arial")
+gui.fCompShip.cmdSave.fontsize(8)
+gui.fCompShip.cmdSave.event(click,cmdsave_click)
+gui.fCompShip.cmdCancel.create(button)
+gui.fCompShip.cmdCancel.caption("Cancel")
+gui.fCompShip.cmdCancel.visible(True)
+gui.fCompShip.cmdCancel.size(840,375)
+gui.fCompShip.cmdCancel.zorder(0)
+gui.fCompShip.cmdCancel.position(1160,8700)
+gui.fCompShip.cmdCancel.enabled(True)
+gui.fCompShip.cmdCancel.fontname("Arial")
+gui.fCompShip.cmdCancel.fontsize(8)
+gui.fCompShip.cmdCancel.event(click,cmdcancel_click)
+gui.fCompShip.dtpShipDt.create(datepicker)
+gui.fCompShip.dtpShipDt.visible(True)
+gui.fCompShip.dtpShipDt.size(1935,285)
+gui.fCompShip.dtpShipDt.zorder(0)
+gui.fCompShip.dtpShipDt.position(200,6425)
+gui.fCompShip.dtpShipDt.enabled(True)
+gui.fCompShip.dtpShipDt.checkbox(False)
+gui.fCompShip.mltxtCom.create(textboxm)
+gui.fCompShip.mltxtCom.text("")
+gui.fCompShip.mltxtCom.visible(True)
+gui.fCompShip.mltxtCom.size(4860,1635)
+gui.fCompShip.mltxtCom.zorder(0)
+gui.fCompShip.mltxtCom.position(200,7025)
+gui.fCompShip.mltxtCom.enabled(True)
+gui.fCompShip.mltxtCom.alignment(0)
+gui.fCompShip.mltxtCom.fontname("Arial")
+gui.fCompShip.mltxtCom.fontsize(8)
+gui.fCompShip.mltxtCom.BackColor(-2147483643)
+gui.fCompShip.ddlShip.create(dropdownlist)
+gui.fCompShip.ddlShip.visible(True)
+gui.fCompShip.ddlShip.size(5220,330)
+gui.fCompShip.ddlShip.zorder(0)
+gui.fCompShip.ddlShip.position(200,1025)
+gui.fCompShip.ddlShip.enabled(True)
+gui.fCompShip.ddlShip.fontname("Arial")
+gui.fCompShip.ddlShip.fontsize(8)
+gui.fCompShip.ddlShip.event(click,ddlship_click)
+gui.fCompShip.ddlShIpVia.create(dropdownlist)
+gui.fCompShip.ddlShIpVia.visible(True)
+gui.fCompShip.ddlShIpVia.size(3675,330)
+gui.fCompShip.ddlShIpVia.zorder(0)
+gui.fCompShip.ddlShIpVia.position(200,5795)
+gui.fCompShip.ddlShIpVia.enabled(True)
+gui.fCompShip.ddlShIpVia.fontname("Arial")
+gui.fCompShip.ddlShIpVia.fontsize(8)
+gui.fCompShip.lbl13.create(label,"Select Order Due Date(s)",True,2730,255,1,4265,1925,True,2,Arial,8,-2147483633,0)
+gui.fCompShip.lvwSched.create(listview)
+gui.fCompShip.lvwSched.view(3)
+gui.fCompShip.lvwSched.addlistviewcolumn("Due Date",1500,0)
+gui.fCompShip.lvwSched.addlistviewcolumn("Sched",1000,0)
+gui.fCompShip.lvwSched.addlistviewcolumn("Open",1000,0)
+gui.fCompShip.lvwSched.visible(True)
+gui.fCompShip.lvwSched.size(3705,3600)
+gui.fCompShip.lvwSched.zorder(0)
+gui.fCompShip.lvwSched.position(4100,2125)
+gui.fCompShip.lvwSched.enabled(True)
+gui.fCompShip.lvwSched.borderstyle(1)
+gui.fCompShip.lvwSched.fontname("Arial")
+gui.fCompShip.lvwSched.fontsize(8)
+gui.fCompShip.txtBillChk.create(textbox,"",False,1215,300,0,5800,6500,False,0,Arial,8,-2147483643,1)
+gui.fCompShip.txtViaChk.create(textbox,"",False,1215,300,0,5780,6965,False,0,Arial,8,-2147483643,1)
+gui.fCompShip.mltxtComChk.create(textboxm)
+gui.fCompShip.mltxtComChk.text("")
+gui.fCompShip.mltxtComChk.visible(False)
+gui.fCompShip.mltxtComChk.size(1635,855)
+gui.fCompShip.mltxtComChk.zorder(0)
+gui.fCompShip.mltxtComChk.position(5700,7500)
+gui.fCompShip.mltxtComChk.enabled(False)
+gui.fCompShip.mltxtComChk.alignment(0)
+gui.fCompShip.mltxtComChk.fontname("Arial")
+gui.fCompShip.mltxtComChk.fontsize(8)
+gui.fCompShip.mltxtComChk.BackColor(-2147483643)
+gui.fCompShip.txtDTChk.create(textbox,"",False,1215,300,0,5700,8500,False,0,Arial,8,-2147483643,1)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'MLA
+'H.M. Dunn
+'Complete Shipment
+
+F.ODBC.Connection!Con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+Gui.fCompShip..Show
+Gui.fCompShip.lvwSched.Checkboxes("True")
+
+Program.Sub.Main.End
+
+program.sub.cmdclose_click.start
+V.Local.sError.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sShip.Declare(String)
+V.Local.i.Declare(Long)
+
+Function.Intrinsic.Control.SetErrorHandler("Sub_Err")
+Function.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.Control.CallSub(Clearscreen)
+F.Intrinsic.Control.If(V.Args.ControlName,=,"CMDCLOSE")
+	Gui.fCompShip.ddlShip.ClearItems
+	V.Local.sSQL.Set("select * from "SHIPMENT_LINES" WHERE NOT EXISTS (SELECT * FROM ATG_3716_Comp_Ship WHERE ATG_3716_Comp_Ship.ORDER_NO = SHIPMENT_LINES.ORDER_NO and ATG_3716_Comp_Ship.ORDER_SUFFIX = SHIPMENT_LINES.ORDER_SUFFIX and ATG_3716_Comp_Ship.ORDER_REC = SHIPMENT_LINES.ORDER_REC) and SHIPMENT_LINES.RECORD_TYPE = 'L'")
+	F.ODBC.Connection!Con.OpenRecordsetRO("RST",V.Local.sSQL)
+	F.Intrinsic.Control.DoUntil(V.ODBC.Con!RST.EOF,=,"True")
+		F.Intrinsic.String.Concat(V.ODBC.Con!RST.FieldValLTrim!ORDER_NO,",",V.ODBC.Con!RST.FieldValLTrim!ORDER_SUFFIX,",",V.ODBC.Con!RST.FieldValLTrim!ORDER_REC,V.Local.sShip)
+		F.Intrinsic.Math.Add(V.Local.i,1,V.Local.i)
+		Gui.fCompShip.ddlShip.AddItem(V.Local.sShip,V.Local.i)
+		F.ODBC.Con!RST.MoveNext
+	F.Intrinsic.Control.Loop
+	F.ODBC.Con!RST.Close
+	F.Intrinsic.Control.CallSub(Clearscreen)
+	F.Intrinsic.Debug.SetLA("Loaded drop down list of shipments if Close Shipments was selected")
+F.Intrinsic.Control.Else
+	Gui.fCompShip.ddlShip.ClearItems
+	V.Local.sSQL.Set("select DISTINCT ORDER_NO, ORDER_SUFFIX, ORDER_REC from "ATG_3716_Comp_Ship" WHERE EXISTS (Select * from SHIPMENT_LINES where SHIPMENT_LINES.ORDER_NO = ATG_3716_Comp_Ship.ORDER_NO and SHIPMENT_LINES.ORDER_SUFFIX = ATG_3716_Comp_Ship.ORDER_SUFFIX and SHIPMENT_LINES.ORDER_REC = ATG_3716_Comp_Ship.ORDER_REC)")
+	F.ODBC.Connection!Con.OpenRecordsetRO("RST",V.Local.sSQL)
+	F.Intrinsic.Control.DoUntil(V.ODBC.Con!RST.EOF,=,"True")
+		F.Intrinsic.String.Concat(V.ODBC.Con!RST.FieldValLTrim!ORDER_NO,",",V.ODBC.Con!RST.FieldValLTrim!ORDER_SUFFIX,",",V.ODBC.Con!RST.FieldValLTrim!ORDER_REC,V.Local.sShip)
+		F.Intrinsic.Math.Add(V.Local.i,1,V.Local.i)
+		Gui.fCompShip.ddlShip.AddItem(V.Local.sShip,V.Local.i)
+		F.ODBC.Con!RST.MoveNext
+	F.Intrinsic.Control.Loop
+	F.ODBC.Con!RST.Close
+	F.Intrinsic.Control.CallSub(Clearscreen)
+	F.Intrinsic.Debug.SetLA("Loaded drop down list of shipments if Edit Close Shipments was selected")
+F.Intrinsic.Control.EndIf
+
+Function.Intrinsic.Control.ExitSub
+
+Function.Intrinsic.Control.Label("Sub_Err")
+Function.Intrinsic.Control.If(Variable.Ambient.ErrorNumber,"<>",0)
+	Function.Intrinsic.String.Concat("Error Occurred ",Variable.Ambient.ErrorNumber," with description ",Variable.Ambient.ErrorDescription,Variable.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdclose_click.end
+
+program.sub.fcompship_unload.start
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.dDate.Declare(Date)
+
+Function.Intrinsic.Control.SetErrorHandler("Sub_Err")
+Function.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.Control.If(V.Screen.fCompShip!txtShip.Text,=,"")
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.If(V.Screen.fCompShip!txtBill.Text,=,V.Screen.fCompShip!txtBillChk.Text)
+		F.Intrinsic.Control.If(V.Screen.fCompShip!ddlShIpVia.Text,=,V.Screen.fCompShip!txtViaChk.Text)
+			V.Local.dDate.Set(V.Screen.fCompShip!dtpShipDt.Value)
+			F.Intrinsic.Control.If(V.Screen.fCompShip!txtDTChk.Text,=,V.Local.dDate.String)
+				F.Intrinsic.Control.If(V.Screen.fCompShip!mltxtComChk.Text,=,V.Screen.fCompShip!mltxtCom.Text)
+					F.Intrinsic.Control.End
+				F.Intrinsic.Control.Else
+					F.Intrinsic.UI.Msgbox("Changes not saved, Save changes?","Save",1,V.Local.sRet)
+					F.Intrinsic.Control.If(V.Local.sRet,=,1)
+						F.Intrinsic.Control.CallSub(Cmdsave_click)
+						F.Intrinsic.Control.End
+					F.Intrinsic.Control.Else
+						F.Intrinsic.Control.End
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Else
+				F.Intrinsic.UI.Msgbox("Changes not saved, Save changes?","Save",1,V.Local.sRet)
+				F.Intrinsic.Control.If(V.Local.sRet,=,1)
+					F.Intrinsic.Control.CallSub(Cmdsave_click)
+					F.Intrinsic.Control.End
+				F.Intrinsic.Control.Else
+					F.Intrinsic.Control.End
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Changes not saved, Save changes?","Save",1,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,=,1)
+				F.Intrinsic.Control.CallSub(Cmdsave_click)
+				F.Intrinsic.Control.End
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Control.End
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Changes not saved, Save changes?","Save",1,V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet,=,1)
+			F.Intrinsic.Control.CallSub(Cmdsave_click)
+			F.Intrinsic.Control.End
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.End
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Debug.SetLA("Checked to see if a shipment was open and any changes had been made before unloading")
+
+Function.Intrinsic.Control.ExitSub
+
+Function.Intrinsic.Control.Label("Sub_Err")
+Function.Intrinsic.Control.If(Variable.Ambient.ErrorNumber,"<>",0)
+	Function.Intrinsic.String.Concat("Error Occurred ",Variable.Ambient.ErrorNumber," with description ",Variable.Ambient.ErrorDescription,Variable.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+program.sub.fcompship_unload.end
+
+program.sub.ddlship_click.start
+V.Local.sError.Declare(String)
+V.Local.sSel.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sShip.Declare(String)
+V.Local.sOrd.Declare(String)
+V.Local.sSuf.Declare(String)
+V.Local.i.Declare(Long)
+
+Function.Intrinsic.Control.SetErrorHandler("Sub_Err")
+Function.Intrinsic.Control.ClearErrors
+
+V.Local.sSel.Set(V.Screen.fCompShip!ddlShip.Text)
+F.Intrinsic.String.Split(V.Local.sSel,",",V.Local.sSel)
+F.Intrinsic.String.Concat("Select * from V_SHIPMENT_LINES where ORDER_NO = '",V.Local.sSel(0),"' and ORDER_SUFFIX = '",V.Local.sSel(1),"' and ORDER_REC = '",V.Local.sSel(2),"'",V.Local.sSQL)
+F.ODBC.Connection!Con.OpenRecordsetRO("ShpRST",V.Local.sSQL)
+F.Intrinsic.String.Concat("Select CUSTOMER_PO, WAY_BILL, SHIP_VIA from V_SHIPMENT_HEADER where ORDER_NO = '",V.Local.sSel(0),"' and ORDER_SUFFIX = '",V.Local.sSel(1),"'",V.Local.sSQL)
+F.ODBC.Connection!Con.OpenRecordsetRO("PORST",V.Local.sSQL)
+Gui.fCompShip.txtCust.Text(V.ODBC.Con!ShpRST.FieldValLTrim!CUSTOMER)
+Gui.fCompShip.txtPart.Text(V.ODBC.Con!ShpRST.FieldValLTrim!PART)
+Gui.fCompShip.txtLine.Text(V.ODBC.Con!ShpRST.FieldValLTrim!ORDER_REC)
+V.Local.sOrd.Set(V.ODBC.Con!ShpRST.FieldValLTrim!ORDER_NO)
+V.Local.sSuf.Set(V.ODBC.Con!ShpRST.FieldValLTrim!ORDER_SUFFIX)
+F.Intrinsic.String.Concat(V.Local.sOrd,",",V.Local.sSuf,V.Local.sShip)
+Gui.fCompShip.txtShip.Text(V.Local.sShip)
+Gui.fCompShip.txtQty.Text(V.ODBC.Con!ShpRST.FieldValFloat!QTY_SHIPPED)
+Gui.fCompShip.txtPO.Text(V.ODBC.Con!PORST.FieldValLTrim!CUSTOMER_PO)
+Gui.fCompShip.txtBill.Text(V.ODBC.Con!PORST.FieldValLTrim!WAY_BILL)
+V.Local.sSQL.Set("Select * from V_AR_SHIP_VIA")
+F.ODBC.Connection!Con.OpenRecordsetRO("ViaRST",V.Local.sSQL)
+F.Intrinsic.Control.DoUntil(V.ODBC.Con!ViaRST.EOF,=,"True")
+	F.Intrinsic.Math.Add(V.Local.i,1,V.Local.i)
+	Gui.fCompShip.ddlShIpVia.AddItem(V.ODBC.Con!ViaRST.FieldValLTrim!SHIP_VIA,V.Local.i)
+	F.ODBC.Con!ViaRST.MoveNext
+F.Intrinsic.Control.Loop
+Gui.fCompShip.ddlShIpVia.Text(V.ODBC.Con!PORST.FieldValLTrim!SHIP_VIA)
+Gui.fCompShip.txtBillChk.Text(V.Screen.fCompShip!txtBill.Text)
+Gui.fCompShip.txtViaChk.Text(V.Screen.fCompShip!ddlShIpVia.Text)
+F.Intrinsic.String.Concat("Select * from ATG_3716_Comp_Ship where ORDER_NO = '",V.Local.sSel(0),"' and ORDER_SUFFIX = '",V.Local.sSel(1),"' and ORDER_REC = '",V.Local.sSel(2),"'",V.Local.sSQL)
+F.ODBC.Connection!Con.OpenRecordsetRO("ATGRST",V.Local.sSQL)
+F.Intrinsic.Control.If(V.ODBC.Con!ATGRST.EOF,=,"True")
+F.Intrinsic.Control.Else
+	Gui.fCompShip.mltxtCom.Text(V.ODBC.Con!ATGRST.FieldValLTrim!COMM)
+	Gui.fCompShip.dtpShipDt.Value(V.ODBC.Con!ATGRST.FieldValPervasiveDate!PHY_SHIP)
+F.Intrinsic.Control.EndIf
+Gui.fCompShip.mltxtComChk.Text(V.Screen.fCompShip!mltxtCom.Text)
+Gui.fCompShip.txtDTChk.Text(V.Screen.fCompShip!dtpShipDt.Value)
+F.ODBC.Con!ATGRST.Close
+F.ODBC.Con!PORST.Close
+F.ODBC.Con!ShpRST.Close
+F.ODBC.Con!ViaRST.Close
+F.Intrinsic.Control.CallSub(Shipsched,"No",V.Local.sSel(0),"Suf",V.Local.sSel(1),"Rec",V.Local.sSel(2))
+
+F.Intrinsic.Debug.SetLA("Loaded items to screen based on drop down list selections for shipment")
+
+Function.Intrinsic.Control.ExitSub
+
+Function.Intrinsic.Control.Label("Sub_Err")
+Function.Intrinsic.Control.If(Variable.Ambient.ErrorNumber,"<>",0)
+	Function.Intrinsic.String.Concat("Error Occurred ",Variable.Ambient.ErrorNumber," with description ",Variable.Ambient.ErrorDescription,Variable.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.ddlship_click.end
+
+Program.Sub.ClearScreen.Start
+Gui.fCompShip.txtBill.Text("")
+Gui.fCompShip.txtCust.Text("")
+Gui.fCompShip.txtLine.Text("")
+Gui.fCompShip.txtPart.Text("")
+Gui.fCompShip.txtPO.Text("")
+Gui.fCompShip.ddlShIpVia.ClearItems
+Gui.fCompShip.txtQty.Text("")
+Gui.fCompShip.txtShip.Text("")
+Gui.fCompShip.txtBillChk.Text("")
+Gui.fCompShip.txtViaChk.Text("")
+Gui.fCompShip.mltxtCom.Text("")
+Gui.fCompShip.txtDTChk.Text("")
+Gui.fCompShip.lvwSched.ClearItems
+F.Intrinsic.Debug.SetLA("Clearing screen")
+
+Program.Sub.ClearScreen.End
+
+program.sub.cmdcancel_click.start
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.dDate.Declare(Date)
+
+Function.Intrinsic.Control.SetErrorHandler("Sub_Err")
+Function.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.Control.If(V.Screen.fCompShip!txtShip.Text,=,"")
+	F.Intrinsic.Control.CallSub(Clearscreen)
+	Gui.fCompShip.ddlShip.Text("")
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.If(V.Screen.fCompShip!txtBill.Text,=,V.Screen.fCompShip!txtBillChk.Text)
+		F.Intrinsic.Control.If(V.Screen.fCompShip!ddlShIpVia.Text,=,V.Screen.fCompShip!txtViaChk.Text)
+			V.Local.dDate.Set(V.Screen.fCompShip!dtpShipDt.Value)
+			F.Intrinsic.Control.If(V.Screen.fCompShip!txtDTChk.Text,=,V.Local.dDate.String)
+				F.Intrinsic.Control.If(V.Screen.fCompShip!mltxtComChk.Text,=,V.Screen.fCompShip!mltxtCom.Text)
+					F.Intrinsic.Control.CallSub(Clearscreen)
+					Gui.fCompShip.ddlShip.Text("")
+				F.Intrinsic.Control.Else
+					F.Intrinsic.UI.Msgbox("Changes not saved, Save changes?","Save",1,V.Local.sRet)
+					F.Intrinsic.Control.If(V.Local.sRet,=,1)
+						F.Intrinsic.Control.CallSub(Cmdsave_click)
+					F.Intrinsic.Control.Else
+						F.Intrinsic.Control.CallSub(Clearscreen)
+						Gui.fCompShip.ddlShip.Text("")
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Else
+				F.Intrinsic.UI.Msgbox("Changes not saved, Save changes?","Save",1,V.Local.sRet)
+				F.Intrinsic.Control.If(V.Local.sRet,=,1)
+					F.Intrinsic.Control.CallSub(Cmdsave_click)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.Control.CallSub(Clearscreen)
+					Gui.fCompShip.ddlShip.Text("")
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Changes not saved, Save changes?","Save",1,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,=,1)
+				F.Intrinsic.Control.CallSub(Cmdsave_click)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Control.CallSub(Clearscreen)
+				Gui.fCompShip.ddlShip.Text("")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Changes not saved, Save changes?","Save",1,V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet,=,1)
+			F.Intrinsic.Control.CallSub(Cmdsave_click)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.CallSub(Clearscreen)
+			Gui.fCompShip.ddlShip.Text("")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Debug.SetLA("Checking to see if shipment selected and changes made when Cancel clicked")
+
+Function.Intrinsic.Control.ExitSub
+
+Function.Intrinsic.Control.Label("Sub_Err")
+Function.Intrinsic.Control.If(Variable.Ambient.ErrorNumber,"<>",0)
+	Function.Intrinsic.String.Concat("Error Occurred ",Variable.Ambient.ErrorNumber," with description ",Variable.Ambient.ErrorDescription,Variable.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdcancel_click.end
+
+program.sub.cmdsave_click.start
+V.Local.sError.Declare(String)
+V.Local.sChk.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.sTxt.Declare(String)
+V.Local.sID.Declare(String)
+V.Local.sDate.Declare(String)
+V.Local.sQtySched.Declare(String)
+V.Local.sQtyOpen.Declare(String)
+V.Local.dDate.Declare(Date)
+V.Local.sShip.Declare(String)
+V.Local.sOrdRec.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.dShipDT.Declare(Date)
+V.Local.sShipVia.Declare(String)
+
+
+
+Function.Intrinsic.Control.SetErrorHandler("Sub_Err")
+Function.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.Control.If(V.Screen.fCompShip!txtShip.Text,"=","")
+	F.Intrinsic.UI.Msgbox("No shipment selected!","Error",0)
+F.Intrinsic.Control.Else
+	Gui.fCompShip.lvwSched.RetrieveCheckedListItems(V.Local.sChk)
+	F.Intrinsic.Control.If(V.Local.sChk,=,"***NORETURN***")
+		F.Intrinsic.UI.Msgbox("No ship sechedule record(s) selected!","Error",0)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Split(V.Local.sChk,"*!*",V.Local.sChk)
+		F.Intrinsic.Control.For(V.Local.i,V.Local.sChk.LBound,V.Local.sChk.UBound,1)
+			V.Local.sTxt.Set(V.Screen.fCompShip!lvwSched.ListItemTextExtended(v.Local.sChk(v.Local.i)))
+			F.Intrinsic.String.Split(V.Local.sTxt,"*!*",V.Local.sTxt)
+			V.Local.sDate.Set(V.Local.sTxt(0))
+			V.Local.sQtySched.Set(V.Local.sTxt(1))
+			V.Local.sQtyOpen.Set(V.Local.sTxt(2))
+			F.Intrinsic.String.Format(V.Local.sDate,"MM/DD/YYYY",V.Local.sDate)
+			F.Intrinsic.Date.ConvertDString(V.Local.sDate,"MM/DD/YYYY",V.Local.dDate)
+			V.Local.sShip.Set(V.Screen.fCompShip!txtShip.Text)
+			F.Intrinsic.String.Split(V.Local.sShip,",",V.Local.sShip)
+			V.Local.sOrdRec.Set(V.Screen.fCompShip!txtLine.Text)
+			F.Intrinsic.String.Concat("Select * from ATG_3716_Comp_Ship where ORDER_NO = '",V.Local.sShip(0),"' and ORDER_SUFFIX = '",V.Local.sShip(1),"' and ORDER_REC = '",V.Local.sOrdRec,"' and DATE_DUE = '",V.Local.dDate.PervasiveDate,"'",V.Local.sSql)
+			F.ODBC.Connection!Con.OpenRecordsetRW("RST",V.Local.sSql)
+			F.Intrinsic.Control.If(V.ODBC.Con!RST.EOF,=,"True")
+				F.ODBC.Con!RST.AddNew
+				F.ODBC.Con!RST.Set!ORDER_NO(V.Local.sShip(0))
+				F.ODBC.Con!RST.Set!ORDER_SUFFIX(V.Local.sShip(1))
+				F.ODBC.Con!RST.Set!ORDER_REC(V.Local.sOrdRec)
+				F.ODBC.Con!RST.Set!CUSTOMER(V.Screen.fCompShip!txtCust.Text)
+				F.ODBC.Con!RST.Set!PART(V.Screen.fCompShip!txtPart.Text)
+				F.ODBC.Con!RST.Set!CUSTOMER_PO(V.Screen.fCompShip!txtPO.Text)
+				V.Local.sShipVia.Set(V.Screen.fCompShip!ddlShIpVia.Text)
+				F.ODBC.Con!RST.Set!SHIP_VIA(V.Local.sShipVia.Trim)
+				F.ODBC.Con!RST.Set!DATE_DUE(V.Local.dDate.PervasiveDate)
+				F.ODBC.Con!RST.Set!QTY_SCHED(V.Local.sQtySched)
+				F.ODBC.Con!RST.Set!WAY_BILL(V.Screen.fCompShip!txtBill.Text)
+				V.Local.dShipDT.Set(V.Screen.fCompShip!dtpShipDt.Value)
+				F.ODBC.Con!RST.Set!PHY_SHIP(V.Local.dShipDT.PervasiveDate)
+				F.ODBC.Con!RST.Set!COMM(V.Screen.fCompShip!mltxtCom.Text)
+				F.ODBC.Con!RST.Update
+			F.Intrinsic.Control.Else
+				V.Local.dShipDT.Set(V.Screen.fCompShip!dtpShipDt.Value)
+				V.Local.sShipVia.Set(V.Screen.fCompShip!ddlShIpVia.Text)
+				F.Intrinsic.String.Concat("Update ATG_3716_Comp_Ship set WAY_BILL = '",V.Screen.fCompShip!txtBill.Text,"', PHY_SHIP = '",V.Local.dShipDT.PervasiveDate,"', SHIP_VIA = '",V.Local.sShipVia.Trim,"', COMM = '",V.Screen.fCompShip!mltxtCom.Text,"' where ORDER_NO = '",V.Local.sShip(0),"' and ORDER_SUFFIX = '",V.Local.sShip(1),"' and ORDER_REC = '",V.Local.sOrdRec,"' and DATE_DUE = '",V.Local.dDate.PervasiveDate,"'",V.Local.sSql)
+				F.ODBC.Connection!Con.Execute(V.Local.sSql)
+			F.Intrinsic.Control.EndIf
+			F.ODBC.Con!RST.Close
+		F.Intrinsic.Control.Next(V.Local.i)
+		F.Intrinsic.String.Concat("Update SHIPMENT_HEADER set WAY_BILL = '",V.Screen.fCompShip!txtBill.Text,"', SHIP_VIA = '",V.Local.sShipVia.Trim,"' where ORDER_NO = '",V.Local.sShip(0),"' and ORDER_SUFFIX = '",V.Local.sShip(1),"' and RECORD_TYPE = 'A'",V.Local.sSql)
+		F.ODBC.Connection!Con.Execute(V.Local.sSql)
+		F.Intrinsic.String.Concat("Update SHIPMENT_HEADER set WAY_BILL = '",V.Screen.fCompShip!txtBill.Text,"', SHIP_VIA = '",V.Local.sShipVia.Trim,"' where ORDER_NO = '",V.Local.sShip(0),"' and ORDER_SUFFIX = '",V.Local.sShip(1),"' and RECORD_TYPE = 'C'",V.Local.sSql)
+		F.ODBC.Connection!Con.Execute(V.Local.sSql)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.CallSub(Clearscreen)
+Gui.fCompShip.ddlShip.Text("")
+
+
+Function.Intrinsic.Control.ExitSub
+
+Function.Intrinsic.Control.Label("Sub_Err")
+Function.Intrinsic.Control.If(Variable.Ambient.ErrorNumber,"<>",0)
+	Function.Intrinsic.String.Concat("Error Occurred ",Variable.Ambient.ErrorNumber," with description ",Variable.Ambient.ErrorDescription,Variable.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdsave_click.end
+
+Program.Sub.ShipSched.Start
+V.Local.sError.Declare(String)
+V.Local.sSchedSQL.Declare(String)
+V.Local.dDate.Declare(Date)
+V.Local.i.Declare(Long)
+V.Local.sCompSQL.Declare(String)
+
+Function.Intrinsic.Control.SetErrorHandler("Sub_Err")
+Function.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.String.Concat("select * from V_OE_SHIP_SCHED where ORDER_NO = '",V.Args.No,"' and ORDER_LINE = '",V.Args.Rec,"'",V.Local.sSchedSQL)
+F.ODBC.Connection!Con.OpenRecordsetRO("RST",V.Local.sSchedSQL)
+
+Gui.fCompShip.lvwSched.ClearItems
+F.Intrinsic.Control.DoUntil(V.ODBC.Con!RST.EOF,=,"True")
+	V.Local.dDate.Set(V.ODBC.Con!RST.FieldValTrim!DATE_DUE)
+	F.Intrinsic.Math.Add(V.Local.i,1,V.Local.i)
+	Gui.fCompShip.lvwSched.AddListItem(V.Local.i,V.Local.dDate)
+	Gui.fCompShip.lvwSched.SetListItemSubItemText(V.Local.i,1,V.ODBC.Con!RST.FieldValFloat!QTY_SCHED)
+	Gui.fCompShip.lvwSched.SetListItemSubItemText(V.Local.i,2,V.ODBC.Con!RST.FieldValFloat!QTY_OPEN)
+	F.Intrinsic.String.Concat("select * from ATG_3716_Comp_Ship where ORDER_NO = '",V.Args.No,"' and ORDER_SUFFIX = '",V.Args.Suf,"' and ORDER_REC = '",V.Args.Rec,"' and DATE_DUE = '",V.Local.dDate.PervasiveDate,"'",V.Local.sCompSQL)
+	F.ODBC.Connection!Con.OpenRecordsetRO("ChkRST",V.Local.sCompSQL)
+	F.Intrinsic.Control.If(V.ODBC.Con!ChkRST.EOF,=,"True")
+	F.Intrinsic.Control.Else
+		Gui.fCompShip.lvwSched.ListItemCheck(V.Local.i,"True")
+	F.Intrinsic.Control.EndIf
+	F.ODBC.Con!ChkRST.Close
+	F.ODBC.Con!RST.MoveNext
+F.Intrinsic.Control.Loop
+F.ODBC.Con!RST.Close
+F.Intrinsic.Debug.SetLA("Loaded list view with Ship Schedules")
+
+Function.Intrinsic.Control.ExitSub
+
+Function.Intrinsic.Control.Label("Sub_Err")
+Function.Intrinsic.Control.If(Variable.Ambient.ErrorNumber,"<>",0)
+	Function.Intrinsic.String.Concat("Error Occurred ",Variable.Ambient.ErrorNumber," with description ",Variable.Ambient.ErrorDescription,Variable.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+
+Program.Sub.ShipSched.End
+
+
